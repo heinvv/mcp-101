@@ -215,7 +215,7 @@ class AccessibilityHelperHTTPServer {
   }
 
   async run(): Promise<void> {
-    const port = process.env.PORT || 3000;
+    const port = parseInt(process.env.PORT || '3000', 10);
     
     // Create SSE transport for MCP
     this.app.use('/mcp', express.raw({ type: 'application/json' }));
@@ -231,10 +231,15 @@ class AccessibilityHelperHTTPServer {
       });
     });
     
-    this.app.listen(port, () => {
+    const server = this.app.listen(port, '0.0.0.0', () => {
       console.log(`[MCP HTTP Server] Accessibility Helper listening on port ${port}`);
       console.log(`[MCP HTTP Server] Health check: http://localhost:${port}/health`);
       console.log(`[MCP HTTP Server] MCP endpoint: http://localhost:${port}/mcp`);
+    });
+    
+    // Keep process alive
+    server.on('error', (error) => {
+      console.error('[MCP HTTP Server] Server error:', error);
     });
   }
 }

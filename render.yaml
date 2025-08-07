@@ -6,7 +6,7 @@ services:
     plan: free
     rootDir: ./
     buildCommand: npm install && npm run build
-    startCommand: npm run start:http
+    startCommand: node dist/http-server.js
     envVars:
       - key: NODE_ENV
         value: production
