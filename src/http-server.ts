@@ -9,7 +9,7 @@ import { ToolParameters } from './types/index';
 import express from 'express';
 import cors from 'cors';
 
-class AccessibilityHelperHTTPServer {
+export class AccessibilityHelperHTTPServer {
   private server: Server;
   private app: express.Application;
 

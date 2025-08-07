@@ -197,9 +197,21 @@ class AccessibilityHelperServer {
 
 // Start the server
 if (import.meta.url === `file://${process.argv[1]}`) {
-  const server = new AccessibilityHelperServer();
-  server.run().catch((error) => {
-    console.error('[MCP Server] Failed to start:', error);
-    process.exit(1);
-  });
+  // In production environment with PORT set, start HTTP server instead
+  if (process.env.NODE_ENV === 'production' && process.env.PORT) {
+    console.log('[MCP Server] Production environment detected, starting HTTP server...');
+    import('./http-server.js').then(({ AccessibilityHelperHTTPServer }) => {
+      const httpServer = new AccessibilityHelperHTTPServer();
+      httpServer.run().catch((error) => {
+        console.error('[MCP HTTP Server] Failed to start:', error);
+        process.exit(1);
+      });
+    });
+  } else {
+    const server = new AccessibilityHelperServer();
+    server.run().catch((error) => {
+      console.error('[MCP Server] Failed to start:', error);
+      process.exit(1);
+    });
+  }
 }

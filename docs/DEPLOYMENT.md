@@ -2,12 +2,17 @@
 
 ## Render.com Deployment
 
+### Smart Server Detection
+The main server (`dist/server.js`) automatically detects the environment:
+- **Production** (`NODE_ENV=production` + `PORT` set): Starts HTTP server
+- **Development**: Starts stdio server for local MCP integration
+
 ### Configuration Files
 - `render.yaml` - Main deployment configuration
 - `package.json` - Dependencies and scripts
 
 ### Key Settings
-- **Start Command**: `node dist/http-server.js` (HTTP server, not stdio server)
+- **Start Command**: `node dist/server.js` (auto-detects and starts HTTP server in production)
 - **Build Command**: `npm install && npm run build`
 - **Health Check**: `/health`
 - **Port**: Uses `process.env.PORT` from Render.com

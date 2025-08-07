@@ -122,10 +122,10 @@ Both tools accept the same parameters:
 3. The deployment process will:
    - Install dependencies with `npm install` (includes TypeScript types as dependencies)
    - Build TypeScript with `npm run build` 
-   - Start the HTTP server with `npm run start:http`
+   - Start with `node dist/server.js` (automatically detects production and starts HTTP server)
 4. Verify deployment at: `https://your-app.onrender.com/`
 
-**Note**: TypeScript and type definitions are included as regular dependencies (not devDependencies) to ensure they're available during the build process on Render.com.
+**Smart Server Detection**: The main server automatically detects when running in production (with `NODE_ENV=production` and `PORT` set) and starts the HTTP server instead of the stdio server. This ensures proper deployment regardless of Render.com configuration.
 
 #### Deployment Endpoints
 - **Root**: `/` - Server status and info

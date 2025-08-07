@@ -9,7 +9,8 @@
       "Bash(rm:*)",
       "Bash(npm run lint)",
       "Bash(npm run clean:*)",
-      "Bash(chmod:*)"
+      "Bash(chmod:*)",
+      "Bash(NODE_ENV=production PORT=3000 timeout 3s node dist/server.js)"
     ],
     "deny": []
   }
