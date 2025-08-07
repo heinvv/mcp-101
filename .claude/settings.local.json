@@ -7,7 +7,8 @@
       "Bash(timeout:*)",
       "Bash(mv:*)",
       "Bash(rm:*)",
-      "Bash(npm run lint)"
+      "Bash(npm run lint)",
+      "Bash(npm run clean:*)"
     ],
     "deny": []
   }

@@ -119,8 +119,16 @@ Both tools accept the same parameters:
 
 1. Connect your repository to Render.com
 2. Use the included `render.yaml` configuration
-3. Set environment variables as needed
-4. Deploy as a web service
+3. The deployment process will:
+   - Install dependencies with `npm install`
+   - Automatically build TypeScript via `postinstall` script
+   - Start the HTTP server with `npm run start:http`
+4. Verify deployment at: `https://your-app.onrender.com/`
+
+#### Deployment Endpoints
+- **Root**: `/` - Server status and info
+- **Health**: `/health` - Health check for monitoring
+- **MCP**: `/mcp` - MCP protocol endpoint
 
 ### Environment Variables
 

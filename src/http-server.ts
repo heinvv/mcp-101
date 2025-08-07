@@ -40,6 +40,19 @@ class AccessibilityHelperHTTPServer {
     this.app.get('/health', (req, res) => {
       res.json({ status: 'healthy', timestamp: new Date().toISOString() });
     });
+    
+    // Root endpoint for deployment verification
+    this.app.get('/', (req, res) => {
+      res.json({ 
+        name: 'MCP Accessibility Helper',
+        version: '1.0.0',
+        status: 'running',
+        endpoints: {
+          health: '/health',
+          mcp: '/mcp'
+        }
+      });
+    });
   }
 
   private setupToolHandlers(): void {

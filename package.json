@@ -7,6 +7,7 @@
   "scripts": {
     "build": "tsc && npm run fix-imports",
     "fix-imports": "node scripts/fix-imports.js",
+    "postinstall": "npm run build",
     "dev": "tsx src/server.ts",
     "dev:http": "tsx src/http-server.ts",
     "start": "node dist/server.js",
