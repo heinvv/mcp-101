@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: mcp-accessibility-helper
+    runtime: node
+    env: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm run start:http
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        fromValue: $PORT
+      - key: MCP_LOG_LEVEL
+        value: info
+    healthCheckPath: /health

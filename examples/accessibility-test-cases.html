@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessibility Test Page</title>
+</head>
+<body>
+    <!-- Good navigation example -->
+    <nav aria-label="Main navigation">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Navigation with issues -->
+    <nav>
+        <a href="/link1">Link 1</a>
+        <a href="/link2">Link 2</a>
+    </nav>
+
+    <!-- Good dropdown example -->
+    <button aria-expanded="false" aria-haspopup="menu" aria-controls="dropdown-menu">
+        Menu
+    </button>
+    <ul id="dropdown-menu">
+        <li><a href="/item1">Item 1</a></li>
+        <li><a href="/item2">Item 2</a></li>
+    </ul>
+
+    <!-- Dropdown with issues -->
+    <button>☰</button>
+    <ul>
+        <li><a href="/option1">Option 1</a></li>
+        <li><a href="/option2">Option 2</a></li>
+    </ul>
+</body>
+</html>
