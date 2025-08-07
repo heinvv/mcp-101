@@ -8,7 +8,8 @@
       "Bash(mv:*)",
       "Bash(rm:*)",
       "Bash(npm run lint)",
-      "Bash(npm run clean:*)"
+      "Bash(npm run clean:*)",
+      "Bash(chmod:*)"
     ],
     "deny": []
   }

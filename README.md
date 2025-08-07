@@ -120,10 +120,12 @@ Both tools accept the same parameters:
 1. Connect your repository to Render.com
 2. Use the included `render.yaml` configuration
 3. The deployment process will:
-   - Install dependencies with `npm install`
-   - Automatically build TypeScript via `postinstall` script
+   - Install dependencies with `npm install` (includes TypeScript types as dependencies)
+   - Build TypeScript with `npm run build` 
    - Start the HTTP server with `npm run start:http`
 4. Verify deployment at: `https://your-app.onrender.com/`
+
+**Note**: TypeScript and type definitions are included as regular dependencies (not devDependencies) to ensure they're available during the build process on Render.com.
 
 #### Deployment Endpoints
 - **Root**: `/` - Server status and info
